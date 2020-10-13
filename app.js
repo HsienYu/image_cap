@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
-const child_process = require("child_process");
+var timeout = require("connect-timeout"); //express v4
 const Webprocess = require("./webprocess");
 
 // app.all("*", function (req, res, next) {
@@ -21,7 +21,13 @@ app.get("/process", async function (req, res, next) {
 });
 
 //add the router
+app.use(timeout(120000));
+app.use(haltOnTimedout);
 app.use("/", router);
 app.listen(process.env.port || 4000);
+
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) next();
+}
 
 console.log("Running at Port 4000");
