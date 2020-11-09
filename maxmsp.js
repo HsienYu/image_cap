@@ -1,6 +1,7 @@
 const path = require("path");
 const http = require("http");
 const Max = require("max-api");
+const gTTS = require('gtts');
 
 var options = {
   host: "127.0.0.1",
@@ -16,9 +17,17 @@ Max.addHandler("bang", async () => {
   http.request(options, callback).end();
 });
 
+
+
 // Use the 'outlet' function to send messages out of node.script's outlet
-Max.addHandler("echo", (msg) => {
-  Max.outlet(msg);
+Max.addHandler("say", (msg) => {
+  Max.post(msg);
+  // var gtts = new gTTS(msg, 'en');
+  // gtts.save('temp.mp3', async function (err, result) {
+  //    if(err) { throw new Error(err) }
+  //      await Max.post('Success! Open file temp.mp3 to hear result.');
+  //      console.log('Success! Open file temp.mp3 to hear result.');
+  // });
 });
 
 callback = function (response) {

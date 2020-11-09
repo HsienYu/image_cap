@@ -17,12 +17,18 @@
   },
   "homepage": "https://github.com/HsienYu/image_cap#readme",
   "dependencies": {
+    "audio-loader": "^1.0.3",
+    "audio-play": "^2.2.1",
+    "audio-sink": "^1.1.6",
     "connect-timeout": "^1.9.0",
     "deepai": "^1.0.16",
     "expres": "0.0.5",
     "express": "^4.17.1",
     "g-i-s": "^2.1.6",
+    "google-tts-api": "0.0.4",
+    "gtts": "^0.2.1",
     "image-downloader": "^4.0.1",
+    "mp3-to-wav": "^0.1.11",
     "node-osc": "^5.2.1",
     "random-animal-name-generator": "^0.1.1",
     "random-country-name": "^1.0.3"

@@ -22,19 +22,20 @@ const asyncGis = (opts) => {
 class webprocess {
   async grab() {
     async function insertOptions(results) {
-      var rndInt = getRandomInt(3);
+      var rndInt = getRandomInt(5);
+      console.log(rndInt);
       var imgUrl = results[rndInt].url;
       console.log(imgUrl);
       const options = {
         url: imgUrl,
         dest: "images",
       };
-      await download
-        .image(options)
-        .then(({ filename }) => {
-          console.log("Saved to", filename); // saved to /path/to/dest/image.jpg
-        })
-        .catch((err) => console.error(err));
+      // await download
+      //   .image(options)
+      //   .then(({ filename }) => {
+      //     console.log("Saved to", filename); // saved to /path/to/dest/image.jpg
+      //   })
+      //   .catch((err) => console.error(err));
 
       var resp = await deepai.callStandardApi("neuraltalk", {
         image: imgUrl,
